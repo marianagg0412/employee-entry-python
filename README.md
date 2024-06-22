@@ -51,3 +51,18 @@ Luego, puedes iniciar el servidor Flask ejecutando:
 ```bash
 python app.py
 ```
+
+## Recuperar Datos Dummy
+
+Si deseas recuperar los datos dummy utilizando el volcado de la base de datos (`pg_dump`), sigue estos pasos:
+
+1. **Copia el archivo de volcado a tu contenedor Docker**:
+```bash
+docker cp ./control_ingreso.dump postgresql-container:/tmp/control_ingreso.dump
+```
+
+2. **Restaurar el volcado en la base de datos**:
+    - `postgresql-container`: Nombre del contenedor Docker.
+    - `miusuario`: Usuario de la base de datos.
+    - `midatabase`: Nombre de la base de datos donde se restaurarán los datos.
+    - `/tmp/control_ingreso.dump`: Ruta dentro del contenedor donde se encuentra el archivo de volcado.
